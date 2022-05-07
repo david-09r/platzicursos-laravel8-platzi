@@ -7,7 +7,7 @@ Route::get('/',
    [PageController::class, 'home']
 )->name('home');
 
-Route::get('curso',
+Route::get('curso/{course:slug}',
    [PageController::class, 'course']
 )->name('course');
 
