@@ -37,24 +37,14 @@
     <div class="grid grid-cols-2 text-center p-4">
         <h3 class="col-span-3 text-4xl py-2">Curso Similares</h3>
         @foreach($course->similar() as $course)
-            <div class="bg-white shadow-lg rounded-lg px-4 py-6 text-center col-span-1">
-                <a href="{{ route('course', $course->slug) }}">
-                    <img src="{{ $course->image }}" class="rounded-md mb-2">
-                    <h2 class="text-lg text-gray-600 truncate uppercase">{{ $course->name }}</h2>
-                    <h3 class="text-md text-gray-500">{{ $course->excerpt }}</h3>
-
-                    <img src="{{ $course->user->avatar }}"
-                         class="rounded-full mx-auto h-16 w-16"
-                    >
-                </a>
-            </div>
+            <x-course-card :course="$course"/>
         @endforeach
     </div>
 
-    {{--    <div class="text-center mt-4">--}}
-    {{--        <h1 class="text-3xl text-gray-700 mb-2 uppercase">Ultimos cursos</h1>--}}
-    {{--        <h2 class="text-xl text-gray-600">Formate online como profesional en tecnologia</h2>--}}
-    {{--    </div>--}}
+    <div class="text-center mt-4">
+        <h1 class="text-3xl text-gray-700 mb-2 uppercase">Ultimos cursos</h1>
+        <h2 class="text-xl text-gray-600">Formate online como profesional en tecnologia</h2>
+    </div>
 
-    {{--    <livewire:course-list/>--}}
+    <livewire:course-list/>
 @endsection
